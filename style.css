@@ -282,7 +282,7 @@ a {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 450px) {
     .project-front p.title {
         font-size: 1.5rem;
     }
@@ -290,10 +290,10 @@ a {
         font-size: 1.5rem;
     }
     .project-item {
-        height: 280px;
+        height: 280px !important;
     }
     .project-front p.title {
-        top: 52%;
+        top: 55% !important;
     }
     .footer-1 {
         display: flex; 
