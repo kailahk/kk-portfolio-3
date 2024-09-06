@@ -8,6 +8,11 @@
     src: url(./fonts/GlacialIndifference-Regular.otf);
 }
 
+@font-face {
+    font-family: glacialIndifference-bold;
+    src: url(./fonts/GlacialIndifference-Bold.otf);
+}
+
 /* Global Styles */
 body {
     font-family: glacialIndifference-black;
@@ -61,6 +66,7 @@ a {
     margin-top: 0px;
 }
 
+/* Contact Button */
 .contact-btn {
     padding: 15px 30px;
     background-color: #8e5572;
@@ -69,7 +75,7 @@ a {
     border-radius: 30px;
     font-size: 1.25rem;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease-in-out;
     width: 115px;
     text-align: center;
 }
@@ -84,16 +90,7 @@ a {
 .intro-image-wrapper {
     position: relative;
     max-width: 350px;
-}
-
-.image-box {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    border-radius: 10px;
+    padding-left: 45px;
 }
 
 .intro-image img {
@@ -128,7 +125,8 @@ a {
     border: 2px solid #8e5572;
     border-radius: 10px;
     overflow: hidden;
-    height: 300px; /* Ensure the items have height */
+    height: 100%; /* Ensure the items have height */
+    min-height: 270px;
 }
 
 .project-inner {
@@ -139,8 +137,23 @@ a {
     border-radius: 10px;
 }
 
-.project-front a, .project-back > * {
-    position: absolute;
+.project-front {
+    height: 100%;
+}
+
+.project-front a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    transition: background-color 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.project-back {
     width: 100%;
     height: 100%;
     display: flex;
@@ -148,76 +161,65 @@ a {
     justify-content: center;
     align-items: center;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease-in-out;
     border-radius: 10px;
-}
-
-.project-front p.title {
-    position: absolute;
-    width: 85%;
-    top: 75%;
 }
 
 .project-front a:hover {
     background-color: #8e5572;
+    justify-content: center;
+    flex-direction: column-reverse;
 }
 .project-front a:hover p {
     color: white !important;
 }
+.project-front a:hover p.title {
+    font-family: glacialIndifference-bold;
+}
 .project-front a:hover img {
-    display:none;
+    display: none;
 }
 
-.project-front {
-    background-color: #fff;
-}
-
-/* Hide project-back by default with opacity and transform */
 .project-back {
-    opacity: 0;
-    transform: translateY(20px); /* Shift down initially */
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition */
-    background-color: #8e5572;
-    color: white;
+    display: none;
+    background-color: transparent;
+    color: #2e2e2e;
     position: relative;
-    top: -20%;
     width: 85%;
     margin: 0 auto;
+    height: fit-content;
 }
 
-/* Display project-back on hover with smooth transition */
 .project-item:hover .project-back {
-    opacity: 1; /* Fade in */
-    transform: translateY(0); /* Slide up smoothly */
+    display: block;
 }
 
 .project-front img {
-    width: 100%;  /* Ensure the images are sized correctly */
+    width: 100%;
     height: auto;
-    position: absolute;
-    top: 0%;
 }
 
 .project-front p.title {
     font-size: 1.1rem;
     color: #333;
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 15px;
 }
 
 .project-back p {
     font-size: 1.1rem;
-    margin-bottom: 15px;
     text-align: center;
 }
 
 .project-back a {
     color: white;
-    font-weight: bold;
     text-align: center;
 }
 
 .footer-1 {
     margin-top: 40px;
-    display: flex; 
+    display: flex;
     position: absolute;
     left: 45%;
 }
@@ -227,77 +229,105 @@ a {
     width: 50px;
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .projects-grid {
-        grid-template-columns: 1fr 1fr;  /* 2 columns for medium screens */
+/* Mobile Queries */
+@media (max-width: 900px) {
+    .intro-content h1 {
+        font-size: 3rem;
+        margin-bottom: 0px;
     }
-
+    .intro-content p {
+        width: 80%;
+    }
+    .work-section {
+        margin-top: 0px;
+    }
+    .intro-section * {
+        text-align: center;
+        width: 88%;
+        margin: 0 auto;
+    }
     .intro-section {
         flex-direction: column;
-        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
-
-    .intro-image-wrapper {
-        margin-top: 30px;
-    }
-}
-
-@media (max-width: 1000px) {
     .contact-btn {
-        margin: 0 auto;
+        width: 20%;
     }
 }
 
 @media (max-width: 768px) {
     .projects-grid {
-        grid-template-columns: 1fr;  /* 1 column for smaller screens */
+        grid-template-columns: 1fr; /* 1 column for smaller screens */
+    }
+    .intro-content {
+        padding-right: 0px;
     }
     .intro-content h1 {
         font-size: 2.5rem;
-        font-family: 'Playfair Display', serif;
-        color: #2e2e2e;
-        margin-bottom: 20px;
     }
     .intro-image-wrapper {
-       margin: 100px auto;
-       margin-left: 40px;
+        margin-left: 50px;
+        margin-top: 30px;
     }
-    .project-front p.title {
-        font-size: 1.8rem;
+    .project-item:hover .project-back,
+    .project-front a:hover {
+        background-color: transparent; /* Remove hover background */
     }
-    .project-back p {
-        font-size: 1.8rem;
+    .project-front a:hover img {
+        display: block; /* Keep image visible */
     }
-    .footer-1 {
-        display: flex; 
-        position: absolute;
-        left: 40%;
+    .project-front a img, .project-back {
+        display: block; /* Keep image visible */
     }
-    .intro-section{
-        padding-bottom: 0px;
+    .project-front a {
+        flex-direction: column-reverse;
     }
-    .project-item {
-        height: 500px;
+    .project-front a:hover p {
+        color: inherit !important;
+    }
+    .project-front a p.title {
+        font-family: glacialIndifference-bold !important
+    }
+    .work-section {
+        padding: 0 !important;
     }
 }
 
 @media (max-width: 450px) {
+    body {
+        padding: 0 25px;
+    }
+    .intro-image-wrapper {
+        margin-top: 15px;
+        margin-left: 0;
+    }
+    .intro-section p {
+        width: 100%;
+    }
+    .intro-section {
+        width: 100%;
+    }
     .project-front p.title {
         font-size: 1.5rem;
     }
     .project-back p {
         font-size: 1.5rem;
     }
-    .project-item {
-        height: 280px !important;
-    }
-    .project-front p.title {
-        top: 55% !important;
-    }
     .footer-1 {
-        display: flex; 
-        position: absolute;
-        left: 30%;
+        left: 33%;
+    }
+    .projects-grid {
+        gap: 40px;
+    }
+    .intro-section {
+        padding-top: 0 !important;
+    }
+    .contact-btn {
+        width: 40%;
+    }
+    h1 {
+        margin-bottom: 15px !important;
+        font-size: 2.2rem !important;
     }
 }
