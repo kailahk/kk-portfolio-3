@@ -286,7 +286,8 @@ p.title, .project-back p {
     }
 
     .project-front:hover img {
-        visibility: visible;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .project-front .project-back {
@@ -360,7 +361,7 @@ p.title, .project-back p {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 370px) {
     .intro-image img {
         display: none !important;
     }
