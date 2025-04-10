@@ -29,7 +29,7 @@ body {
 
 .footer-1 {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 50px;
 }
 
 h1,
@@ -63,6 +63,7 @@ a {
     justify-content: space-between;
     height: 490px;
     padding-right: 20px;
+    height: 100%;
 }
 
 .intro-content h1 {
@@ -91,6 +92,7 @@ a {
     transition: all 0.5s ease-in-out;
     width: 115px;
     text-align: center;
+    border: 2px solid #8e557300;
 }
 
 .contact-btn:hover {
@@ -113,7 +115,7 @@ a {
 
 /* Work Section */
 .work-section-title {
-    margin-top: 150px;
+    margin-top: 100px;
     font-family: 'Playfair Display', serif;
     font-size: 2.5rem;
     text-align: left;
@@ -232,7 +234,7 @@ a {
 
 @media (max-width: 1025px) {
     .work-section-title {
-        margin-top: 100px;
+        margin-top: 50px;
         text-align: center;
     }
 
@@ -261,7 +263,7 @@ a {
 
     .intro-section * {
         text-align: center;
-        width: 88%;
+        width: 70%;
         margin: 0 auto;
     }
 
@@ -357,12 +359,6 @@ a {
         margin: 0 auto;
     }
 
-}
-
-@media (max-width: 580px) {
-    .intro-image-wrapper {
-        margin-top: 150px !important;
-    }
 }
 
 @media (max-width: 450px) {
